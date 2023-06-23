@@ -1,7 +1,7 @@
 ## Intro
 
 This repo is intended to set up Social Network Application. Main functions: signup and login users and enable to create 
-posts and like them. For start working with it, need to clone it:
+posts and like them. For start working with it, need to clone:
 
 ```
 git clone https://github.com/Lehsqa/social_network_flask.git <project-name>
