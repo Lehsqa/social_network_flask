@@ -1,6 +1,7 @@
 ## Intro
 
-This repo is intended to make it easy to get started with a Flask project. If you want to use it for your own projects, I suggest cloning this repo locally rather than following the installation instructions below:
+This repo is intended to set up Social Network Application. Main functions: signup and login users and enable to create 
+posts and like them. For start working with it, need to clone it:
 
 ```
 git clone https://github.com/Lehsqa/social_network_flask.git <project-name>
