@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  social_network_app:
+    container_name: flask_container
+    image: dockerhub-flask_live_app:1.0.0
+    build: .
+    environment:
+      - FLASK_APP=project/app
+      - DATABASE_URI=postgresql://postgres:postgres@social_network_db:5432/postgres
+      - JWT_SECRET_KEY=66859b7ade4e68cb65041b88a7ad5214df71cdcfa27dff2efcc80a81e9ba5fa0
+    ports:
+      - "4000:4000"
+    depends_on:
+      - social_network_db
+      - social_network_pgadmin
+
+  social_network_db:
+    container_name: pg_container
+    image: postgres:12
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  social_network_pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmindata:/var/lib/pgadmin
+
+volumes:
+  pgdata: {}
+  pgadmindata: {}
